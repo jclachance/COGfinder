@@ -9,7 +9,7 @@ def _get_reference():
     current_dir = os.path.dirname(os.path.realpath(__file__))
     parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
     file_path = os.path.join(parent_dir, 'data/cog2003-2014.csv')
-    cog_reference = pd.read_csv(file_path)
+    cog_reference = pd.read_csv(file_path, )
 
     return cog_reference
 

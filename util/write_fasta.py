@@ -3,10 +3,10 @@ from Bio.SeqRecord import SeqRecord
 from Bio.Alphabet import generic_protein
 
 def writeFasta(df,filename):
-    #Parse the goddamn file and make a real fasta out of it
+    #Parse the file and make a workable fasta
     my_records = []
     for i,row in df.iterrows():
-        #Obtain id, description and sequence from messed up file
+        #Obtain id, description and sequence from original file
         if i % 2 == 0:
             misc_stuff = str(row.stuff)
             list_of_sutff = misc_stuff.split('|')
@@ -30,6 +30,7 @@ def writeFasta(df,filename):
 '''-------------------------------'''
 
 import pandas as pd
+path
 os.chdir('/home/jean-christophe/Documents/Maitrise_UCSD/MultiStrain_meso/Data/')
 
 #Get the filenames in the directory

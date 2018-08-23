@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from pylab import rcParams
+from os import listdir
+from os.path import isfile,join
 
 #Make graphs
 def number_of_genes(df):
@@ -60,11 +62,10 @@ def plotHistogram(filename,df):
     print(fig_filename)
     plt.savefig(fig_filename)
     
-def main():
-    from os import listdir
-    from os.path import isfile,join
+def plot():
+
     mypath = '/home/jean-christophe/Documents/Maitrise_UCSD/MultiStrain_meso/Data/COG/'
-    csv_files = [f for f in listdir(mypath) if isfile(join(mypath, f))and f.endswith('pan_COG.csv')]
+    csv_files = [f for f in listdir(mypath) if isfile(join(mypath, f)) and f.endswith('pan_COG.csv')]
     os.chdir('/home/jean-christophe/Documents/Maitrise_UCSD/MultiStrain_meso/Data/COG')
     for filename in csv_files:
         print(filename)
@@ -74,6 +75,5 @@ def main():
         #Make dataframe with sorted categories based on number of genes in it
         categoryDF = categoryLetter(number_per_category)
         plotHistogram(filename, categoryDF)
-        
-if __name__=='__main__':
-    main() 
+
+
